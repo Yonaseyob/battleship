@@ -2,15 +2,14 @@ from random import randint
 
 game_board = []
 
+total_turns = 0
 player = "player"
-
-TOTAL_TURNS = 0
 
 # Building our 5 x 5 board
 
 
 def build_game_board(board):
-    for i in range(5):
+    for item in range(5):
         board.append(["O"] * 5)
 
 
@@ -34,7 +33,6 @@ def load_game(board):
         'ship_row': ship_row,
     }
 
-
 ship_points = load_game(game_board)
 
 # Players will alternate turns.
@@ -42,9 +40,8 @@ ship_points = load_game(game_board)
 
 def player_turns():
     if total_turns % 2 == 0:
-        return player_two
-    else:
-        return player_one
+        return player
+   
 
 # Allows new game to start
 
@@ -52,6 +49,7 @@ def player_turns():
 def play_again():
     answer = str(input("Would you like to play again?"))
     if answer == "yes" or answer == "y":
+        total_turns = 0
         ship_points = load_game(game_board)
     else:
         print("Thanks for playing!")
@@ -96,29 +94,21 @@ def input_check(ship_row, ship_col, player, board):
 
 for games in range(3):
     games += 1
-    for turns in range(6):
+    for turns in range(4):
         total_turns += 1
-        if player_turns() == player_one:
-            print("Player One")
+        if player_turns() == player:
+            print("turn")
             input_check(
                 ship_points['ship_row'],
                 ship_points['ship_col'],
-                player_one, game_board
+                player, game_board
             )
-        elif player_turns() == player_two:
-            print("Player Two")
-            input_check(
-                ship_points['ship_row'],
-                ship_points['ship_col'],
-                player_two, game_board
-            )
+       
         else:
             continue
-        if total_turns == 6 and player_turns() == player_one:
-            print("The game is a draw")
+        if total_turns == 6 and player_turns() == player:
+            print("You did not hit any ship")
             play_again()
-        elif total_turns == 6 and player_turns() == player_two:
-            print("The game is a draw")
-            play_again()
+       
         else:
             continue
