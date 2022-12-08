@@ -5,11 +5,11 @@ game_board = []
 total_turns = 0
 player = "player"
 
+
+
 # Building our 5 x 5 board
-
-
 def build_game_board(board):
-    for item in range(5):
+    for i in range(5):
         board.append(["O"] * 5)
 
 
@@ -18,10 +18,13 @@ def show_board(board):
     for row in board:
         print(" ".join(row))
 
+
+
 # Defining ships locations
 
-
 def load_game(board):
+
+
     print("WELCOME TO BATTLESHIP!")
     print("START")
     build_game_board(board)
@@ -33,7 +36,9 @@ def load_game(board):
         'ship_row': ship_row,
     }
 
+
 ship_points = load_game(game_board)
+
 
 # Players will alternate turns.
 
@@ -47,10 +52,9 @@ def player_turns():
 
 
 def play_again():
-    answer = str(input("Would you like to play again?"))
+    answer = str(input("Would you like to play again? y/n"))
     if answer == "yes" or answer == "y":
-        total_turns = 0
-        ship_points = load_game(game_board)
+       ship_points = load_game(game_board)
     else:
         print("Thanks for playing!")
         exit()
@@ -75,12 +79,12 @@ def input_check(ship_row, ship_col, player, board):
 
     if match:
         player["wins"] += 1
-        print("Congratulations! You sunk my battleship!")
+        print("Congratulations! you got it!")
         print("Thanks for playing!")
         play_again()
     elif not match:
         if not_on_game_board:
-            print("Oops, that's not even in the ocean.")
+            print("Out of range")
         elif board[guess_row][guess_col] == "X":
             print("You guessed that one already.")
         else:
