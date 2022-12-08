@@ -1,13 +1,9 @@
 from random import randint
 
 game_board = []
-player_one = {
-    "name": "Player 1"
-    
-}
-player_two = {
-    "name": "computer"
-}
+player = "player"
+
+
 TOTAL_TURNS = 0
 
 # Building our 5 x 5 board
@@ -56,10 +52,10 @@ def player_turns():
 def play_again():
     answer = str(input("Would you like to play again?"))
     if answer == "yes" or answer == "y":
-        
-      else:
-    print("Thanks for playing!")
-    exit()
+        ship_points = load_game(game_board)
+    else:
+        print("Thanks for playing!")
+        exit()
 
 # What will be done with players guesses
 
