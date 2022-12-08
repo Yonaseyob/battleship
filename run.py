@@ -88,15 +88,17 @@ def input_check(ship_row, ship_col, player, board):
         elif board[guess_row][guess_col] == "X":
             print("You guessed that one already.")
         else:
-            print("You missed my battleship!")
+            print("You missedS!")
             board[guess_row][guess_col] = "X"
         show_board(game_board)
     else:
         return 0
 
+
 # GAME - 3 games in total
 
 for games in range(3):
+
     games += 1
     for turns in range(4):
         total_turns += 1
