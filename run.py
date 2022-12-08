@@ -2,22 +2,19 @@ from random import randint
 
 game_board = []
 player_one = {
-    "name": "Player 1",
-    "wins": 0,
-    "lose": 0
+    "name": "Player 1"
+    
 }
 player_two = {
-    "name": "Player 2",
-    "wins": 0,
-    "lose": 0
+    "name": "computer"
 }
-total_turns = 0
+TOTAL_TURNS = 0
 
 # Building our 5 x 5 board
 
 
 def build_game_board(board):
-    for item in range(5):
+    for i in range(5):
         board.append(["O"] * 5)
 
 
@@ -32,7 +29,6 @@ def show_board(board):
 def load_game(board):
     print("WELCOME TO BATTLESHIP!")
     print("START")
-    del board[:]
     build_game_board(board)
     show_board(board)
     ship_col = randint(1, len(board))
@@ -41,6 +37,7 @@ def load_game(board):
         'ship_col': ship_col,
         'ship_row': ship_row,
     }
+
 
 ship_points = load_game(game_board)
 
@@ -59,11 +56,10 @@ def player_turns():
 def play_again():
     answer = str(input("Would you like to play again?"))
     if answer == "yes" or answer == "y":
-        total_turns = 0
-        ship_points = load_game(game_board)
-    else:
-        print("Thanks for playing!")
-        exit()
+        
+      else:
+    print("Thanks for playing!")
+    exit()
 
 # What will be done with players guesses
 
