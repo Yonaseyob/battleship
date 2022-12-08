@@ -1,8 +1,8 @@
 from random import randint
 
 game_board = []
-player = "player"
 
+player = "player"
 
 TOTAL_TURNS = 0
 
