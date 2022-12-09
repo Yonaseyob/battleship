@@ -89,33 +89,32 @@ def input_check(ship_row, ship_col, player, board):
         elif board[guess_row][guess_col] == "X":
             print("You guessed that one already.")
         else:
-            print("You missedS!")
+            print("You missed!")
             board[guess_row][guess_col] = "X"
         show_board(game_board)
     else:
         return 0
 
+for attempt in range(total_turns):
+ 
+  guess_row = int(raw_input("Guess Row:"))
+  guess_col = int(raw_input("Guess Col:"))
 
-# GAME - 3 games in total
+  if guess_row == ship_row and guess_col == ship_col:
+      print ("Congratulations! You sunk my battleship!")
+      break
+  else:
+      if (guess_row < 0 or guess_row > 4) or (guess_col < 0 or guess_col > 4):
+          print "Oops, that's not even in the ocean."
+      elif(board[guess_row][guess_col] == "X"):
+          print "You guessed that one already!!!"
+      else:
+          print "You missed my battleship!"
+          board[guess_row][guess_col] = "X"
 
-for games in range(3):
-
-    games += 1
-    for turns in range(6):
-        total_turns += 1
-        if player_turns() == player:
-            print("turn")
-            input_check(
-                ship_points['ship_row'],
-                ship_points['ship_col'],
-                player, game_board
-            )
-       
-        else:
-            continue
-        if total_turns == 6 and player_turns() == player:
-            print("You did not hit any ship")
-            play_again()
-       
-        else:
-            continue
+      print "Turn %d \n" % (turn + 1) 
+      print_board(board)
+      turn = turn + 1
+      
+      if turn == NO_USER_GUESS:
+          print "Game Over"
