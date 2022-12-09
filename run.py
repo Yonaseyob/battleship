@@ -1,13 +1,14 @@
+# To create an imaginary opponent.
+
 from random import randint
 
 game_board = []
 
-total_turns = 0
+
 player = "player"
 
+# Creates the 5x5 matrix.
 
-
-# Building our 5 x 5 board
 def build_game_board(board):
     for i in range(5):
         board.append(["O"] * 5)
@@ -19,8 +20,7 @@ def show_board(board):
         print(" ".join(row))
 
 
-
-# Defining ships locations
+# Assigning the generated random numbers to ship_row and ship_col.
 
 def load_game(board):
 
@@ -41,10 +41,11 @@ ship_points = load_game(game_board)
 
 
 # Players will alternate turns.
-
+total_turns = 0
 
 def player_turns():
-    if total_turns % 2 == 0:
+
+    if total_turns %2 == 0:
         return player
    
 
@@ -100,7 +101,7 @@ def input_check(ship_row, ship_col, player, board):
 for games in range(3):
 
     games += 1
-    for turns in range(4):
+    for turns in range(6):
         total_turns += 1
         if player_turns() == player:
             print("turn")
