@@ -3,6 +3,7 @@ import random
 ROWS = 5
 COLUMNS = 5
 
+
 def create_random_ship():
     return random.randrange(ROWS), random.randrange(COLUMNS)
 
@@ -31,9 +32,9 @@ def play_game():
     ship2 = create_random_ship()
     ship3 = create_random_ship()
     ships_left = 3
-    gusse = 10
+    guess = 5
 
-    while gusse:
+    while guess:
         try:
             row = int(input("Enter a row"))
             column = int(input("Enter a column"))
@@ -61,12 +62,12 @@ def play_game():
         else:
             print("You missed!")
             game_board[row][column] = "-"
-            gusse -= 1
+            guess -= 1
 
         for i in game_board:
             print(*i)
 
-        print(f"Ammo left: {gusse} | Ships left: {ships_left}")
+        print(f"Guess left: {guess} | Ships left: {ships_left}")
 
     play_again()
 
