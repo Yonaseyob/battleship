@@ -17,11 +17,11 @@ def play_again():
     After the given guess chances are finished the player will give 
     another try if the player will play again
     """
-    try_again = input("Do you want to play again? <Y>es or <N>o? >: ").lower()
+    try_again = input("Do you want to play again? y for Yes or any key for No:\n").lower()
     if try_again == "y":
         play_game()
     else:
-        print("Goodbye!")
+        print("see you next time")
         return
 
 
@@ -49,13 +49,13 @@ def play_game():
 
     while guess:
         try:
-            row = int(input("Enter a row"))
-            column = int(input("Enter a column"))
+            row = int(input("Enter a row:\n"))
+            column = int(input("Enter a column:\n"))
         except ValueError:
             print("Only number between 1-5!")
             continue
 
-        if row not in range(1,6) or column not in range(1, 6):
+        if row not in range(1, 6) or column not in range(1, 6):
             print("The numbers must be between 1-5!")
             continue
 
